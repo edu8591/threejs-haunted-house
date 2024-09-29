@@ -3,8 +3,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { Timer } from "three/addons/misc/Timer.js";
 import GUI from "lil-gui";
 
-console.log(Timer);
+const textureLoader = new THREE.TextureLoader();
 
+const axesHelper = new THREE.AxesHelper(3);
+axesHelper.position.y = 5;
 /**
  * Base
  */
@@ -17,16 +19,44 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
+scene.add(axesHelper);
 /**
  * Objects
  */
 /**
  * House
  */
+// house group
+const house = new THREE.Group();
+const walls = new THREE.Mesh(
+  new THREE.BoxGeometry(4, 2.5, 4),
+  new THREE.MeshStandardMaterial()
+);
+walls.position.y += walls.geometry.parameters.height * 0.5;
+house.add(walls);
+
+const roof = new THREE.Mesh(
+  new THREE.ConeGeometry(3.5, 1.5, 4),
+  new THREE.MeshStandardMaterial()
+);
+roof.rotation.y = Math.PI * 0.25;
+console.log(roof.position);
+roof.position.y =
+  walls.geometry.parameters.height + roof.geometry.parameters.height * 0.5;
+house.add(roof);
+
+const door = new THREE.Mesh(
+  new THREE.PlaneGeometry(2.1, 2.1),
+  new THREE.MeshStandardMaterial({ color: "red" })
+);
+door.position.y = door.geometry.parameters.height * 0.5;
+door.position.z = walls.geometry.parameters.width * 0.5 + 0.01;
+house.add(door);
+scene.add(house);
 // Floor
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(20, 20),
-  new THREE.MeshBasicMaterial()
+  new THREE.MeshStandardMaterial()
 );
 floor.rotation.x = -Math.PI * 0.5;
 floor.position.y = 0;
@@ -75,9 +105,12 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.x = 4;
+// camera.position.x = 4;
+camera.position.x = 10;
 camera.position.y = 2;
-camera.position.z = 5;
+// camera.position.y = 10;
+// camera.position.z = 5;
+camera.position.z = 10;
 scene.add(camera);
 
 // Controls
