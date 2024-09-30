@@ -45,7 +45,6 @@ const roof = new THREE.Mesh(
   new THREE.MeshStandardMaterial()
 );
 roof.rotation.y = Math.PI * 0.25;
-console.log(roof.position);
 roof.position.y =
   walls.geometry.parameters.height + roof.geometry.parameters.height * 0.5;
 house.add(roof);
@@ -66,6 +65,26 @@ const floor = new THREE.Mesh(
 floor.rotation.x = -Math.PI * 0.5;
 floor.position.y = 0;
 scene.add(floor);
+
+// Bushes
+const bushGeometry = new THREE.SphereGeometry(1, 16, 16);
+const bushMaterial = new THREE.MeshStandardMaterial({ color: "#89c854" });
+
+const bush1 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush1.scale.setScalar(0.5);
+// bush1.scale.set(0.5, 0.5, 0.5); // same as above
+bush1.position.set(0.8, 0.2, 2.2);
+const bush2 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush2.scale.setScalar(0.25);
+bush2.position.set(1.4, 0.1, 2.1);
+const bush3 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush3.scale.setScalar(0.4);
+bush3.position.set(-0.8, 0.1, 2.2);
+const bush4 = new THREE.Mesh(bushGeometry, bushMaterial);
+bush4.scale.setScalar(0.14);
+bush4.position.set(-1, 0.05, 2.6);
+
+house.add(bush1, bush2, bush3, bush4);
 /**
  * Lights
  */
