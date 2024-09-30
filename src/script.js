@@ -3,9 +3,13 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { Timer } from "three/addons/misc/Timer.js";
 import GUI from "lil-gui";
 
-const textureLoader = new THREE.TextureLoader();
+const loadingManager = new THREE.LoadingManager();
+loadingManager.onError = (e) => {
+  console.log(e);
+  console.log("error");
+};
+const textureLoader = new THREE.TextureLoader(loadingManager);
 
-const axesHelper = new THREE.AxesHelper(3);
 axesHelper.position.y = 5;
 /**
  * Base
@@ -49,7 +53,7 @@ const door = new THREE.Mesh(
   new THREE.PlaneGeometry(2.1, 2.1),
   new THREE.MeshStandardMaterial({ color: "red" })
 );
-door.position.y = door.geometry.parameters.height * 0.5;
+door.position.y = door.geometry.parameters.height * 0.5 - 0.1;
 door.position.z = walls.geometry.parameters.width * 0.5 + 0.01;
 house.add(door);
 scene.add(house);
