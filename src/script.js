@@ -10,6 +10,7 @@ loadingManager.onError = (e) => {
 };
 const textureLoader = new THREE.TextureLoader(loadingManager);
 
+const axesHelper = new THREE.AxesHelper(3);
 axesHelper.position.y = 5;
 /**
  * Base
