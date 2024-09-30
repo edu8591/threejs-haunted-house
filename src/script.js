@@ -10,7 +10,7 @@ loadingManager.onError = (e) => {
 };
 const textureLoader = new THREE.TextureLoader(loadingManager);
 
-const axesHelper = new THREE.AxesHelper(3);
+const axesHelper = new THREE.AxesHelper(10);
 axesHelper.position.y = 5;
 /**
  * Base
@@ -85,6 +85,32 @@ bush4.scale.setScalar(0.14);
 bush4.position.set(-1, 0.05, 2.6);
 
 house.add(bush1, bush2, bush3, bush4);
+
+// Graves
+const gravesGroup = new THREE.Group();
+scene.add(gravesGroup);
+const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2);
+const graveMaterial = new THREE.MeshStandardMaterial({ color: "gray" });
+
+for (let i = 0; i < 30; i++) {
+  const graveMesh = new THREE.Mesh(graveGeometry, graveMaterial);
+  gravesGroup.add(graveMesh);
+  const angle = Math.random() * Math.PI * 2;
+  // console.log(angle);
+  // console.log(Math.cos(angle));
+
+  const radius = 3 + Math.random() * 6;
+  // const x = Math.sin(angle) * Math.random() * 10;
+  const x = Math.sin(angle) * radius;
+  // const z = Math.cos(angle) * Math.random() * 10;
+  const z = Math.cos(angle) * radius;
+  graveMesh.position.x = x;
+  graveMesh.position.z = z;
+  graveMesh.position.y = Math.random() * 0.4;
+  graveMesh.rotation.x = Math.random() * 0.4 - 0.2;
+  graveMesh.rotation.z = Math.random() * 0.4 - 0.2;
+  gravesGroup.add(graveMesh);
+}
 /**
  * Lights
  */
