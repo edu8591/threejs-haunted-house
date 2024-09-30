@@ -3,7 +3,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { Timer } from "three/addons/misc/Timer.js";
 import { floor } from "./objects/floor";
 import { gui } from "./gui";
-import { house } from "./objects/hose";
+import { house } from "./objects/house";
 import { graves } from "./objects/graves";
 
 const loadingManager = new THREE.LoadingManager();
