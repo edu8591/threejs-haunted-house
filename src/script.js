@@ -48,6 +48,7 @@ sky.material.uniforms.sunPosition.value.set(0.3, -0.038, -0.95);
 
 sky.scale.setScalar(100);
 scene.add(sky);
+scene.fog = new THREE.FogExp2("#06343F", 0.1);
 /**
  * Sizes
  */
