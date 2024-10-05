@@ -29,3 +29,8 @@ for (let i = 0; i < 30; i++) {
 
   graves.add(grave);
 }
+
+graves.children.forEach((grave) => {
+  grave.castShadow = true;
+  grave.receiveShadow = true;
+});

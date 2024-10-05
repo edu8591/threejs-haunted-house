@@ -16,5 +16,6 @@ const floorMaterial = new THREE.MeshStandardMaterial({
 });
 export const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 
+floor.receiveShadow = true;
 floor.rotation.x = -Math.PI * 0.5;
 floor.position.y = 0;

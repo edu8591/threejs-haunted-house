@@ -17,8 +17,11 @@ const wallsMaterial = new THREE.MeshStandardMaterial({
   metalnessMap: wallsTextures.ARM,
   normalMap: wallsTextures.normal,
 });
+
 const walls = new THREE.Mesh(wallsGeometry, wallsMaterial);
 walls.position.y += wallsGeometry.parameters.height * 0.5;
+walls.castShadow = true;
+walls.receiveShadow = true;
 
 house.add(walls);
 
@@ -35,6 +38,8 @@ const roof = new THREE.Mesh(roofGeometry, roofMaterial);
 roof.rotation.y = Math.PI * 0.25;
 roof.position.y =
   wallsGeometry.parameters.height + roofGeometry.parameters.height * 0.5;
+roof.castShadow = true;
+roof.receiveShadow = true;
 
 house.add(roof);
 
