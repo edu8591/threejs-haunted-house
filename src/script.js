@@ -26,7 +26,6 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
-scene.add(axesHelper);
 scene.add(house);
 scene.add(floor);
 scene.add(graves);
