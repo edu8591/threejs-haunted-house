@@ -101,6 +101,30 @@ const tick = () => {
   timer.update();
   const elapsedTime = timer.getElapsed();
 
+  // Ghosts
+  const ghost1Angle = elapsedTime * 0.5;
+  ghostLight1.position.x = Math.cos(ghost1Angle) * 4;
+  ghostLight1.position.z = Math.sin(ghost1Angle) * 4;
+  ghostLight1.position.y =
+    Math.sin(ghost1Angle) *
+    Math.sin(ghost1Angle * 2.34) *
+    Math.sin(ghost1Angle * 3.45);
+
+  const ghost2Angle = -elapsedTime * 0.3;
+  ghostLight2.position.x = Math.cos(ghost2Angle) * 5;
+  ghostLight2.position.z = Math.sin(ghost2Angle) * 5;
+  ghostLight2.position.y =
+    Math.sin(ghost2Angle) *
+    Math.sin(ghost2Angle * 2.34) *
+    Math.sin(ghost2Angle * 3.45);
+
+  const ghost3Angle = elapsedTime * 0.23;
+  ghostLight3.position.x = Math.cos(ghost3Angle) * 6;
+  ghostLight3.position.z = Math.sin(ghost3Angle) * 6;
+  ghostLight3.position.y =
+    Math.sin(ghost3Angle) *
+    Math.sin(ghost3Angle * 2.34) *
+    Math.sin(ghost3Angle * 3.45);
   // Update controls
   controls.update();
 
