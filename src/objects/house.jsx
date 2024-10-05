@@ -65,7 +65,7 @@ house.add(door);
 
 // doorLight.position.set(0, 2.2, 2.5);
 doorLight.position.z = wallsGeometry.parameters.width * 0.5 + 0.1;
-doorLight.position.y = door.geometry.parameters.height + 0.4;
+doorLight.position.y = door.geometry.parameters.height + 0.3;
 house.add(doorLight);
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16);
 const bushMaterial = new THREE.MeshStandardMaterial({

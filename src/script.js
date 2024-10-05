@@ -20,9 +20,6 @@ loadingManager.onError = (e) => {
   console.log("error");
 };
 
-const axesHelper = new THREE.AxesHelper(10);
-axesHelper.position.y = 5;
-
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
