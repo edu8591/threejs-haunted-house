@@ -5,6 +5,13 @@ import { floor } from "./objects/floor";
 import { gui } from "./gui";
 import { house } from "./objects/house";
 import { graves } from "./objects/graves";
+import {
+  ambientLight,
+  directionalLight,
+  ghostLight1,
+  ghostLight2,
+  ghostLight3,
+} from "./lights";
 
 const loadingManager = new THREE.LoadingManager();
 loadingManager.onError = (e) => {
@@ -14,10 +21,6 @@ loadingManager.onError = (e) => {
 
 const axesHelper = new THREE.AxesHelper(10);
 axesHelper.position.y = 5;
-/**
- * Base
- */
-// Debug
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -26,30 +29,14 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 scene.add(axesHelper);
-/**
- * Objects
- */
-/**
- * House
- */
 scene.add(house);
-
-// Floor
 scene.add(floor);
-
-// Graves
 scene.add(graves);
-/**
- * Lights
- */
-// Ambient light
-const ambientLight = new THREE.AmbientLight("#ffffff", 0.5);
 scene.add(ambientLight);
-
-// Directional light
-const directionalLight = new THREE.DirectionalLight("#ffffff", 1.5);
-directionalLight.position.set(3, 2, -8);
 scene.add(directionalLight);
+scene.add(ghostLight1);
+scene.add(ghostLight2);
+scene.add(ghostLight3);
 
 /**
  * Sizes
